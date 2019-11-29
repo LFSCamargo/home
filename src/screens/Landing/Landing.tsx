@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
 import Header from '../../components/Header';
+import Button from '../../components/Button';
 
 const ProfileConatiner = styled.div`
   @media (min-width: 800px) {
@@ -46,7 +47,7 @@ const ProfileImageContainer = styled.div`
       margin: 20px 0px;
     }
     border-radius: 250px;
-    background-image: url('https://avatars2.githubusercontent.com/u/18129416?s=460&v=4');
+    background-image: url('https://avatars0.githubusercontent.com/u/44933973?s=460&v=4');
     background-size: cover;
     box-shadow: 0px 0px 20px 0px grey;
   }
@@ -58,6 +59,25 @@ const ProfileImageDescription = styled.div`
   }
   @media (max-width: 800px) {
     justify-content: center;
+  }
+  article {
+    display: flex;
+    width: '100%';
+    @media (min-width: 800px) {
+      width: 700px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+    @media (max-width: 800px) {
+      width: 300px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    } 
+    button {
+      margin: 10px;
+    }
   }
   div {
     flex-direction: column;
@@ -80,7 +100,7 @@ const ProfileImageDescription = styled.div`
       color: black;
       font-size: 3.5em;
       font-weight: 600;
-    };
+    }
     p {
       color: black;
       @media (min-width: 800px) {
@@ -94,28 +114,46 @@ const ProfileImageDescription = styled.div`
       font-weight: 100;
     }
   }
-`
+`;
 
 class Landing extends React.Component<RouteComponentProps> {
   render() {
     return (
       <div>
-        <Header history={this.props.history} profileImage="https://avatars2.githubusercontent.com/u/18129416?s=460&v=4" />
+        <Header
+          history={this.props.history}
+          profileImage='https://avatars0.githubusercontent.com/u/44933973?s=460&v=4'
+        />
         <ProfileConatiner>
           <ProfileImageDescription>
             <div>
               <h1>Luiz Fernando Sousa Camargo</h1>
-              <p>Hello, my name is Luiz Fernando, I live in São Paulo - SP,  I code almost all the time, some times a lil bit of design (UI and UX), I speak at meetups and conferences!, and i game when im not hunting some demons.</p>
-              <p>Today I work as Software Engineer at Popstand, Popstand is a consulting company for startups and big tech companies! We can transform everything that you want in code!!</p>
+              <p>Hello here's my portifolio, im Senior Software Engineer at Popstand and i work remotely from Brazil</p>
+              <p>
+                Techs that im used to work: React, React-Native, Relay Modern, Apollo, GraphQL, NodeJS, Redux, Redux-Saga, WebRTC
+              </p>
+              <p>
+                Today I work as Software Engineer at Popstand, Popstand is a consulting company for startups and big
+                tech companies! We can transform everything that you want in code and very successful products!!
+              </p>
+              <p>
+                I Also play guitar, game a lot, and when im not hunting some demons i code some open source stuff
+              </p>
+              <article>
+                <Button title='My Github' onClick={() => window.open('https://github.com/LFSCamargo')} />
+                <Button title='My Linkedin' onClick={() => window.open('https://www.linkedin.com/in/luizfernando-lxspandora/')} />
+                <Button title='My Instagram' onClick={() => window.open('https://instagram.com/lxsluizinho')} />
+              </article>
             </div>
           </ProfileImageDescription>
+          
           <ProfileImageContainer>
             <div />
           </ProfileImageContainer>
         </ProfileConatiner>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Landing;
